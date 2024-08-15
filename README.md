@@ -79,7 +79,6 @@ docker-compose up --build -d
 docker exec -it gawa bash
 
 conda run --no-capture-output -n gawa python -W ignore gawa_main.py gawa.cfg
+# conda run --no-capture-output -n gawa debugpy --listen 0.0.0.0:5678 --wait-for-client gawa_main.py gawa.cfg  # Debugging
 
 ```
-
-
