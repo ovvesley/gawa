@@ -38,5 +38,8 @@ ENV GAWA_LOG_LEVEL=info
 COPY requirements.txt .
 
 RUN sed -i 's/dataclasses==0.8/dataclasses==0.6/g' requirements.txt && \ 
+    conda run --no-capture-output -n gawa python -m pip install --upgrade debugpy && \
     conda run --no-capture-output -n gawa python -m pip install -r requirements.txt && \
     conda run --no-capture-output -n gawa python -m ipykernel install --user --name=gawa
+
+EXPOSE 5678

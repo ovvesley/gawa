@@ -10,6 +10,8 @@ services:
     stdin_open: true
     working_dir: /data
     tty: true
+    ports:
+      - "5678:5678"
 
 volumes:
   gawa_volume:
