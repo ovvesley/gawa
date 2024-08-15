@@ -1,0 +1,15 @@
+services:
+  gawa:
+    image: gawa
+    container_name: gawa
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/data
+    stdin_open: true
+    working_dir: /data
+    tty: true
+
+volumes:
+  gawa_volume:
