@@ -35,7 +35,7 @@ ENV GAWA_ROOT=/data/
 ENV PYTHONPATH=$PYTHONPATH:$GAWA_ROOT
 ENV GAWA_LOG_LEVEL=info
 
-COPY requirements.txt .
+COPY . .
 
 RUN sed -i 's/dataclasses==0.8/dataclasses==0.6/g' requirements.txt && \ 
     conda run --no-capture-output -n gawa python -m pip install --upgrade debugpy && \

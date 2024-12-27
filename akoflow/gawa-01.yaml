@@ -1,0 +1,24 @@
+name: gawa-01-default
+spec:
+  image: "ovvesley/akoflow-wf-gawa:latest"
+  namespace: "akoflow"
+  storageClassName: hostpath
+  storageSize: 1Gi
+  mountPath: /data
+  activities:
+    - name: gawastep01
+      run: conda run --no-capture-output -n gawa python -W ignore gawa_main.py gawa.cfg STEP_1
+      memoryLimit: 1Gi
+      cpuLimit: 1
+    - name: gawastep02
+      run: conda run --no-capture-output -n gawa python -W ignore gawa_main.py gawa.cfg STEP_2
+      memoryLimit: 1Gi
+      cpuLimit: 14
+    - name: gawastep03
+      run: conda run --no-capture-output -n gawa python -W ignore gawa_main.py gawa.cfg STEP_3
+      memoryLimit: 1Gi
+      cpuLimit: 14
+    - name: gawastep04
+      run: conda run --no-capture-output -n gawa python -W ignore gawa_main.py gawa.cfg STEP_4
+      memoryLimit: 1Gi
+      cpuLimit: 1
